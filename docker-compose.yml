@@ -8,6 +8,7 @@ services:
         TZ: 'Asia/Shanghai'
         GITLAB_OMNIBUS_CONFIG: |
           external_url 'http://gitlab.aurora.com'
+          unicorn['port'] = 8080
           gitlab_rails['time_zone'] = 'Asia/Shanghai'
           # 需要配置到 gitlab.rb 中的配置可以在这里配置，每个配置一行，注意缩进。
           # 比如下面的电子邮件的配置：
@@ -21,7 +22,7 @@ services:
           # gitlab_rails['smtp_tls'] = true
           # gitlab_rails['gitlab_email_from'] = 'xxxx@xx.com'
       ports:
-        - '1080:80'
+        - '8080:80'
         - '443:443'
         - '10022:22'
       volumes:
